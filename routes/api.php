@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServicoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::post('store',[ServicoController::class, 'store']);
+  
+Route::post('nome',[ServicoController::class,'pesquisarPorNome']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('find/{id}',[ServicoController::class,'pesquisarPorId']);
+
+Route::delete('delete/{id}', [ServicoController::class, 'delete']);
+
+Route::put('update', [ServicoController::class, 'editar']);
+
+Route::get('all',[ServicoController::class,'retornarTodos']);
