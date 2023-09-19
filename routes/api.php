@@ -45,3 +45,5 @@ Route::get('Cliente/find/celular/{celular}',[ClienteController::class,'pesquisar
 
 Route::get('Cliente/find/cpf/{cpf}',[ClienteController::class,'pesquisarPorCPF']);
 
+Route::put('Cliente/senha',[ClienteController::class,'recuperarSenha']);
+

@@ -221,6 +221,15 @@ class ClienteController extends Controller
     public function recuperarSenha(Request $request){
         $clientes = Cliente::where('cpf','=' .$request->cpf)->get();
 
+       if(count($clientes) > 0){
+        return response()->json([
+            'status'=>true,
+            'data'=>$clientes,
+            'password'=>Hash::make($request->password)
+
+        ]);
+       }
+       
         
     }
     
