@@ -55,7 +55,7 @@ class ProfissionalController extends Controller
     }
 
 
-    public function delete2($id)
+    public function delete($id)
     {
         $profissional= Profissional::find($id);
 
@@ -204,6 +204,39 @@ class ProfissionalController extends Controller
             'menssagens'=>'Não há resultados para pesquisa'
         ]);
     }
+    public function pesquisarPorCep($cep){
+        $profissional = Profissional::where('cep', '=', $cep)->first();
 
+        if($profissional == null){
+            return response()->json([
+                'status'=>false,
+                'data'=>"Cep não encontrado"
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$profissional
+        ]);
+    }
+
+   
+    public function recuperarSenha(Request $request){
+        $profissional = Profissional::where('cpf','=', $request->cpf)->first();
+      
+       if(!isset($profissional)){
+        return response()->json([
+            'status'=>false,
+            'data'=>"Profissional não encontrado"
+          
+        ]);
+       } 
+
+        return response()->json([
+            'status'=>true,
+            'password'=>Hash::make($profissional->cpf)
+        ]);     
+        
+    }
 
 }

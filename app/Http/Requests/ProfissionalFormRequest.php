@@ -26,8 +26,8 @@ class ProfissionalFormRequest extends FormRequest
         return [
             'nome' => 'required|max:120|min:5|',
             'celular' => 'required|max:11|min:10|',
-            'email' => 'required|max:120|unique:clientes,email|',
-            'cpf' => 'required|max:11|min:11|unique:clientes,cpf|',
+            'email' => 'required|max:120|unique:profissionals,email|',
+            'cpf' => 'required|max:11|min:11|unique:profissionals,cpf|',
             'dataNascimento'=>'required|date',
             'cidade' => 'required|max:120|',
             'estado' => 'required|max:2|min:2|',
@@ -66,12 +66,13 @@ class ProfissionalFormRequest extends FormRequest
 
             'email.required' =>  'email obrigatório',
             'email.email' => 'formato inválido',
-            
+            'email.unique'=>'este email já esta cadastrado no sistema',
             'email.max' => 'Este campo deve conter no maximo 120 caractéris',
 
             'cpf.required' => 'preencha o campo',
             'cpf.max' => 'o campo deve conter 11 caracteris',
             'cpf.min' => 'o campo deve no minimo 11 caracteris',
+            'cpf.unique'=>'O cpf já foi cadastrado no sistema',
            
 
             'dataNascimento.required'=>'Preencha esse campo com sua data de nascimento',

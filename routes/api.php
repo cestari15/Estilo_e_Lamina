@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -47,3 +48,23 @@ Route::get('Cliente/find/cpf/{cpf}',[ClienteController::class,'pesquisarPorCPF']
 
 Route::put('Cliente/senha',[ClienteController::class,'recuperarSenha']);
 
+//Profisionais
+
+
+Route::post('profissional/store',[ProfissionalController::class, 'store']);
+
+Route::delete('profissional/delete/{id}', [ProfissionalController::class, 'delete']);
+
+Route::put('profissional/update', [ProfissionalController::class, 'editar']);
+
+Route::post('profissional/nome',[ProfissionalController::class,'pesquisarPorNome']);
+
+Route::get('profissional/find/cep/{cep}',[ProfissionalController::class,'pesquisarPorCep']);
+
+Route::get('profissional/find/email/{email}',[ProfissionalController::class,'pesquisarPorEmail']);
+
+Route::get('profissional/find/celular/{celular}',[ProfissionalController::class,'pesquisarPorCelular']);
+
+Route::get('profissional/find/cpf/{cpf}',[ProfissionalController::class,'pesquisarPorCPF']);
+
+Route::put('profissional/senha',[ProfissionalController::class,'recuperarSenha']);
