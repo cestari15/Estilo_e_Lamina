@@ -27,7 +27,7 @@ class ClienteController extends Controller
             'bairro' => $request->bairro,
             'cep' => $request->cep,
             'complemento' => $request->complemento,
-            'password'=>Hash::make($request->password)
+            'password' => Hash::make($request->password)
         ]);
 
         return response()->json([
@@ -37,19 +37,20 @@ class ClienteController extends Controller
         ], 200);
     }
 
-    public function pesquisarPorCep($cep){
+    public function pesquisarPorCep($cep)
+    {
         $clientes = Cliente::where('cep', '=', $cep)->first();
 
-        if($clientes == null){
+        if ($clientes == null) {
             return response()->json([
-                'status'=>false,
-                'data'=>"Cep não encontrado"
+                'status' => false,
+                'data' => "Cep não encontrado"
             ]);
         }
 
         return response()->json([
-            'status'=>true,
-            'data'=>$clientes
+            'status' => true,
+            'data' => $clientes
         ]);
     }
 
@@ -66,14 +67,14 @@ class ClienteController extends Controller
             ]);
         }
         return response()->json([
-            'status'=>false,
-            'menssagens'=>'Não há resultados para pesquisa'
+            'status' => false,
+            'menssagens' => 'Não há resultados para pesquisa'
         ]);
     }
 
     public function delete2($id)
     {
-        $clientes= Cliente::find($id);
+        $clientes = Cliente::find($id);
 
         if (!isset($clientes)) {
             return response()->json([
@@ -88,15 +89,14 @@ class ClienteController extends Controller
             'message' => "Cliente excluido com sucesso"
         ]);
 
-       
+
     }
 
 
-    
-    public function editar(ClienteFormRequestUpdate $request)
 
+    public function editar(ClienteFormRequestUpdate $request)
     {
-        
+
         $clientes = Cliente::find($request->id);
 
         if (!isset($clientes)) {
@@ -157,7 +157,7 @@ class ClienteController extends Controller
 
 
 
-        
+
         $clientes->update();
 
         return response()->json([
@@ -165,8 +165,8 @@ class ClienteController extends Controller
             'message' => 'Serviço atualizado.'
         ]);
 
-      
-        
+
+
     }
 
 
@@ -181,8 +181,8 @@ class ClienteController extends Controller
             ]);
         }
         return response()->json([
-            'status'=>false,
-            'menssagens'=>'Não há resultados para pesquisa'
+            'status' => false,
+            'menssagens' => 'Não há resultados para pesquisa'
         ]);
     }
 
@@ -197,8 +197,8 @@ class ClienteController extends Controller
             ]);
         }
         return response()->json([
-            'status'=>false,
-            'menssagens'=>'Não há resultados para pesquisa'
+            'status' => false,
+            'menssagens' => 'Não há resultados para pesquisa'
         ]);
     }
 
@@ -213,24 +213,30 @@ class ClienteController extends Controller
             ]);
         }
         return response()->json([
-            'status'=>false,
-            'menssagens'=>'Não há resultados para pesquisa'
+            'status' => false,
+            'menssagens' => 'Não há resultados para pesquisa'
         ]);
     }
 
-    public function recuperarSenha(Request $request){
-        $clientes = Cliente::where('cpf','=' .$request->cpf)->get();
+    public function recuperarSenha(Request $request)
+    {
 
-       if(count($clientes) > 0){
+        $profissional = Profissional::where('cpf', '=', $request->cpf)->first();
+
+        if (!isset($profissional)) {
+            return response()->json([
+                'status' => false,
+                'data' => "Profissional não encontrado"
+
+            ]);
+        }
+
         return response()->json([
-            'status'=>true,
-            'data'=>$clientes,
-            'password'=>Hash::make($request->password)
-
+            'status' => true,
+            'password' => Hash::make($profissional->cpf)
         ]);
-       }
-       
-        
+
     }
-    
+
+
 }
