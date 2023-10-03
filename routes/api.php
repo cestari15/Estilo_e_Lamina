@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
@@ -68,3 +69,19 @@ Route::get('profissional/find/celular/{celular}',[ProfissionalController::class,
 Route::get('profissional/find/cpf/{cpf}',[ProfissionalController::class,'pesquisarPorCPF']);
 
 Route::put('profissional/senha',[ProfissionalController::class,'recuperarSenha']);
+
+//agendas
+
+Route::post('Agenda/store',[AgendaController::class, 'store']);
+
+Route::delete('Agenda/delete/{id}', [AgendaController::class, 'delete']);
+
+Route::put('Agenda/update', [AgendaController::class, 'editar']);
+
+Route::post('Agenda/nome',[AgendaController::class,'pesquisarPorNome']);
+
+
+
+
+
+

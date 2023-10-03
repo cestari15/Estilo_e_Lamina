@@ -6,6 +6,7 @@ use App\Http\Requests\ClienteFormRequest;
 use App\Http\Requests\ClienteFormRequestUpdate;
 use App\Http\Requests\CupdateFormRequest;
 use App\Models\Cliente;
+use App\Models\Profissional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
