@@ -13,8 +13,7 @@ class Agenda extends Model
         'profissional',
         'cliente',
         'servico',
-        'data',
-        'hora',
+        'data_hora',
         'tipo_pagamento',
         'valor'
 

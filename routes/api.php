@@ -80,6 +80,8 @@ Route::put('Agenda/update', [AgendaController::class, 'editar']);
 
 Route::post('Agenda/nome',[AgendaController::class,'pesquisarPorNome']);
 
+Route::get('agenda/retornarTodos',[AgendaController::class,'retornarTodos']);
+
 
 
 
