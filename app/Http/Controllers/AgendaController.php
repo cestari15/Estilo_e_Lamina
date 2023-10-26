@@ -14,8 +14,6 @@ class AgendaController extends Controller
     {
         $agenda = Agenda::create([
             'profissional' => $request->profissional,
-            'cliente' => $request->cliente,
-            'servico' => $request->servico,
             'data_hora' => $request->data_hora,
             'tipo_pagamento' => $request->tipo_pagamento,
             'valor' => $request->valor

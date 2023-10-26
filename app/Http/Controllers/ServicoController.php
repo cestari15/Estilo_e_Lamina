@@ -107,9 +107,16 @@ class ServicoController extends Controller
 
     public function retornarTodos(){
         $servicos = Servicos::all();
+        if($servicos == null){
+            return response()->json([
+                'status'=>false,
+                'message'=>'não foi encontrado'
+            ]);
+        }
         return response()->json([
             'status'=>true,
             'data'=>$servicos
         ]);
     }
+
 }

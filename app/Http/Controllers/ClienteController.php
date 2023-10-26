@@ -239,5 +239,20 @@ class ClienteController extends Controller
 
     }
 
+    public function retornarTodos(){
+        $clientes = Cliente::all();
+
+        if($clientes == null){
+            return response()->json([
+                'status'=>false,
+                'message'=>'não tem ninguem'
+            ]);
+        }
+        return response()->json([
+            'status'=>true,
+            'data'=>$clientes
+        ]);
+    }
+
 
 }
