@@ -239,4 +239,20 @@ class ProfissionalController extends Controller
         
     }
 
+    public function retornarTodos(){
+        $profissional = Profissional::all();
+
+        if($profissional == null){
+            return response()->json([
+            'status'=>false,
+            'message'=>'Ninguem encontrado'
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$profissional
+        ]);
+    }
+
 }

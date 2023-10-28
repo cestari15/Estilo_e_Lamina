@@ -17,37 +17,37 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('Servico/store',[ServicoController::class, 'store']);
+Route::post('servico/store',[ServicoController::class, 'store']);
   
-Route::post('Servico/nome',[ServicoController::class,'pesquisarPorNome']);
+Route::post('servico/nome',[ServicoController::class,'pesquisarPorNome']);
 
-Route::get('Servico/find/{id}',[ServicoController::class,'pesquisarPorId']);
+Route::get('servico/find/{id}',[ServicoController::class,'pesquisarPorId']);
 
-Route::delete('Servico/delete/{id}', [ServicoController::class, 'delete']);
+Route::delete('servico/delete/{id}', [ServicoController::class, 'delete']);
 
-Route::put('Servicoupdate', [ServicoController::class, 'editar']);
+Route::put('servicoupdate', [ServicoController::class, 'editar']);
 
-Route::get('Servico/all',[ServicoController::class,'retornarTodos']);
+Route::get('servico/all',[ServicoController::class,'retornarTodos']);
 
 //CLIENTESS
 
-Route::post('Cliente/store',[ClienteController::class, 'store']);
+Route::post('cliente/store',[ClienteController::class, 'store']);
 
 
-Route::delete('Cliente/delete/{id}', [ClienteController::class, 'delete']);
+Route::delete('cliente/delete/{id}', [ClienteController::class, 'delete']);
 
-Route::put('Cliente/update', [ClienteController::class, 'editar']);
+Route::put('cliente/update', [ClienteController::class, 'editar']);
 
-Route::post('Cliente/nome',[ClienteController::class,'pesquisarPorNome']);
-Route::get('Cliente/find/cep/{cep}',[ClienteController::class,'pesquisarPorCep']);
+Route::post('cliente/nome',[ClienteController::class,'pesquisarPorNome']);
+Route::get('cliente/find/cep/{cep}',[ClienteController::class,'pesquisarPorCep']);
 
-Route::get('Cliente/find/email/{email}',[ClienteController::class,'pesquisarPorEmail']);
+Route::get('cliente/find/email/{email}',[ClienteController::class,'pesquisarPorEmail']);
 
-Route::get('Cliente/find/celular/{celular}',[ClienteController::class,'pesquisarPorCelular']);
+Route::get('cliente/find/celular/{celular}',[ClienteController::class,'pesquisarPorCelular']);
 
-Route::get('Cliente/find/cpf/{cpf}',[ClienteController::class,'pesquisarPorCPF']);
+Route::get('cliente/find/cpf/{cpf}',[ClienteController::class,'pesquisarPorCPF']);
 
-Route::put('Cliente/senha',[ClienteController::class,'recuperarSenha']);
+Route::put('cliente/senha',[ClienteController::class,'recuperarSenha']);
 
 //Profisionais
 
@@ -69,16 +69,17 @@ Route::get('profissional/find/celular/{celular}',[ProfissionalController::class,
 Route::get('profissional/find/cpf/{cpf}',[ProfissionalController::class,'pesquisarPorCPF']);
 
 Route::put('profissional/senha',[ProfissionalController::class,'recuperarSenha']);
+Route::get('profissional/all',[ProfissionalController::class,'retornarTodos']);
 
 //agendas
 
-Route::post('Agenda/store',[AgendaController::class, 'store']);
+Route::post('agenda/store',[AgendaController::class, 'store']);
 
-Route::delete('Agenda/delete/{id}', [AgendaController::class, 'delete']);
+Route::delete('agenda/delete/{id}', [AgendaController::class, 'delete']);
 
-Route::put('Agenda/update', [AgendaController::class, 'editar']);
+Route::put('agenda/update', [AgendaController::class, 'editar']);
 
-Route::post('Agenda/nome',[AgendaController::class,'pesquisarPorNome']);
+Route::post('agenda/nome',[AgendaController::class,'pesquisarPorNome']);
 
 
 
