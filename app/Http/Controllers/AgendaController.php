@@ -14,10 +14,7 @@ class AgendaController extends Controller
     {
         $agenda = Agenda::create([
             'profissional' => $request->profissional,
-            'cliente' => $request->cliente,
-            'servico' => $request->servico,
-            'data' => $request->data,
-            'hora' => $request->hora,
+            'data_hora' => $request->data_hora,
             'tipo_pagamento' => $request->tipo_pagamento,
             'valor' => $request->valor
         ]);
@@ -90,11 +87,8 @@ class AgendaController extends Controller
             $agenda->servico = $request->servico;
         }
 
-        if (isset($request->data)) {
-            $agenda->data = $request->data;
-        }
-        if (isset($request->hora)) {
-            $agenda->hora = $request->hora;
+        if (isset($request->data_hora)) {
+            $agenda->data_hora = $request->data_hora;
         }
         if (isset($request->tipo_pagamento)) {
             $agenda->tipo_pagamento = $request->tipo_pagamento;
@@ -112,6 +106,23 @@ class AgendaController extends Controller
 
 
 
+    }
+
+    public function retornarTodos(){
+        $agenda = Agenda::all();
+
+
+        if(count($agenda)==0){
+            return response()->json([
+                'status'=>false,
+                'message'=>'Agendamento não foi concluido'
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$agenda
+        ]);
     }
 
 

@@ -46,8 +46,15 @@ Route::get('cliente/find/email/{email}',[ClienteController::class,'pesquisarPorE
 Route::get('cliente/find/celular/{celular}',[ClienteController::class,'pesquisarPorCelular']);
 
 Route::get('cliente/find/cpf/{cpf}',[ClienteController::class,'pesquisarPorCPF']);
+<<<<<<< HEAD
 
 Route::put('cliente/senha',[ClienteController::class,'recuperarSenha']);
+=======
+
+Route::put('cliente/senha',[ClienteController::class,'recuperarSenha']);
+Route::get('cliente/retornarTodos',[ClienteController::class,'retornarTodos']);
+
+>>>>>>> b037b2303935484a99cb690d37b005cbaacee79f
 
 //Profisionais
 
@@ -71,6 +78,9 @@ Route::get('profissional/find/cpf/{cpf}',[ProfissionalController::class,'pesquis
 Route::put('profissional/senha',[ProfissionalController::class,'recuperarSenha']);
 Route::get('profissional/all',[ProfissionalController::class,'retornarTodos']);
 
+Route::get('profissional/retornarTodos',[ProfissionalController::class,'retornarTodos']);
+
+
 //agendas
 
 Route::post('agenda/store',[AgendaController::class, 'store']);
@@ -80,6 +90,11 @@ Route::delete('agenda/delete/{id}', [AgendaController::class, 'delete']);
 Route::put('agenda/update', [AgendaController::class, 'editar']);
 
 Route::post('agenda/nome',[AgendaController::class,'pesquisarPorNome']);
+<<<<<<< HEAD
+=======
+
+Route::get('agenda/retornarTodos',[AgendaController::class,'retornarTodos']);
+>>>>>>> b037b2303935484a99cb690d37b005cbaacee79f
 
 
 
