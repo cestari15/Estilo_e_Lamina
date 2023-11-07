@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
+use App\Models\Profissional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Route::get('servico/find/{id}',[ServicoController::class,'pesquisarPorId']);
 
 Route::delete('servico/delete/{id}', [ServicoController::class, 'delete']);
 
-Route::put('servicoupdate', [ServicoController::class, 'editar']);
+Route::put('servico/update', [ServicoController::class, 'editar']);
 
 Route::get('servico/all',[ServicoController::class,'retornarTodos']);
 
@@ -33,6 +34,7 @@ Route::get('servico/all',[ServicoController::class,'retornarTodos']);
 
 Route::post('cliente/store',[ClienteController::class, 'store']);
 
+Route::get('cliente/find/{id}',[ClienteController::class,'pesquisarPorId']);
 
 Route::delete('cliente/delete/{id}', [ClienteController::class, 'delete']);
 
@@ -59,6 +61,8 @@ Route::post('profissional/store',[ProfissionalController::class, 'store']);
 Route::delete('profissional/delete/{id}', [ProfissionalController::class, 'delete']);
 
 Route::put('profissional/update', [ProfissionalController::class, 'editar']);
+
+Route::get('profissionais/find/{id}',[ProfissionalController::class,'pesquisarPorId']);
 
 Route::post('profissional/nome',[ProfissionalController::class,'pesquisarPorNome']);
 

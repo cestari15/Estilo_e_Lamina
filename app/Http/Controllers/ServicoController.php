@@ -64,6 +64,24 @@ class ServicoController extends Controller
     }
 
 
+    public function pesquisarPorId($id){
+        $servicos =Servicos::find($id);
+
+
+        if($servicos == null){
+            return response()->json([
+                'status'=>false,
+                'message'=>"servicos não encontrado"
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$servicos
+        ]);
+    }
+
+
     public function editar(SupdateFormRequest $request)
 
     {

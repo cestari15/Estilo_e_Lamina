@@ -157,6 +157,24 @@ class ProfissionalController extends Controller
         
     }
 
+
+    public function pesquisarPorId($id){
+        $profissional =Profissional::find($id);
+
+
+        if($profissional == null){
+            return response()->json([
+                'status'=>false,
+                'message'=>"profissional não encontrado"
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$profissional
+        ]);
+    }
+
     public function pesquisarPorCPF(Request $request)
     {
         $profissional = Profissional::where('cpf', 'like', '%' . $request->cpf . '%')->get();
