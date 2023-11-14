@@ -73,7 +73,7 @@ class ClienteController extends Controller
         ]);
     }
 
-    public function delete2($id)
+    public function delete($id)
     {
         $clientes = Cliente::find($id);
 
