@@ -32,7 +32,7 @@ class ClienteController extends Controller
         ]);
 
         return response()->json([
-            "success" => true,
+            "status" => true,
             "message" => "Cliente cadastrado com sucesso",
             "data" => $clientes
         ], 200);
@@ -170,7 +170,7 @@ class ClienteController extends Controller
 
     }
 
-
+    
     public function pesquisarPorCPF(Request $request)
     {
         $clientes = Cliente::where('cpf', 'like', '%' . $request->cpf . '%')->get();
