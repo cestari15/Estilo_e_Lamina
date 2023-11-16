@@ -222,19 +222,19 @@ class ClienteController extends Controller
     public function recuperarSenha(Request $request)
     {
 
-        $profissional = Profissional::where('cpf', '=', $request->cpf)->first();
+        $profissional = Profissional::where('email', '=', $request->email)->first();
 
         if (!isset($profissional)) {
             return response()->json([
                 'status' => false,
-                'data' => "Profissional não encontrado"
+                'data' => "Profissional não encontrado",
 
             ]);
         }
 
         return response()->json([
             'status' => true,
-            'password' => Hash::make($profissional->cpf)
+            'password' => $profissional->cpf,
         ]);
 
     }
