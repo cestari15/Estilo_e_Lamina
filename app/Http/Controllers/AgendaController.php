@@ -13,7 +13,7 @@ class AgendaController extends Controller
     public function store(AgendaFormRequest $request)
     {
         $agenda = Agenda::create([
-            'profissional' => $request->profissional,
+            'profissional_id' => $request->profissional_id,
             'data_hora' => $request->data_hora,
             'tipo_pagamento' => $request->tipo_pagamento,
             'valor' => $request->valor
@@ -116,6 +116,23 @@ class AgendaController extends Controller
             return response()->json([
                 'status'=>false,
                 'message'=>'Agendamento não foi concluido'
+            ]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'data'=>$agenda
+        ]);
+    }
+
+    public function pesquisarPorId($id){
+        $agenda =Cliente::find($id);
+
+
+        if($clientes == null){
+            return response()->json([
+                'status'=>false,
+                'message'=>"agenda não encontrado"
             ]);
         }
 

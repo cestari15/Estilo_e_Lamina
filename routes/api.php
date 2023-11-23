@@ -81,7 +81,7 @@ Route::get('profissional/retornarTodos',[ProfissionalController::class,'retornar
 
 
 //agendas
-
+Route::get('agenda/find/{id}',[AgendaController::class,'pesquisarPorId']);
 Route::post('agenda/store',[AgendaController::class, 'store']);
 
 Route::delete('agenda/delete/{id}', [AgendaController::class, 'delete']);
@@ -90,7 +90,7 @@ Route::put('agenda/update', [AgendaController::class, 'editar']);
 
 Route::post('agenda/nome',[AgendaController::class,'pesquisarPorNome']);
 
-Route::get('agenda/retornarTodos',[AgendaController::class,'retornarTodos']);
+Route::get('agenda/all',[AgendaController::class,'retornarTodos']);
 
 
 

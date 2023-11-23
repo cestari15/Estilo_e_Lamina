@@ -24,10 +24,10 @@ class AgendaFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'profissional'=>'required|integer',
+            'profissional_id'=>'required|integer',
             'data_hora'=>'required|date',
-            'tipo_pagamento'=>'required|max:20|min:3',
-            'valor'=>'required|decimal:2,4'
+           // 'tipo_pagamento'=>'required|max:20|min:3',
+           // 'valor'=>'required|decimal:2,4'
         ];
     }
 
